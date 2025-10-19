@@ -52,9 +52,6 @@ An intelligent web application that helps users draft formal complaints, identif
     * Copy the contents of `example.env` into `.env`.
     * Fill in your specific values for each variable (API keys, database URI, etc.). See `example.env` for details.
 
-4.  **(Optional but Recommended) Curate Screenshots:**
-    * Create folders inside `public/images/guide/` for each `portal_id` your AI might generate (e.g., `national-consumer-helpline`).
-    * Manually take screenshots for each step of filing on those portals and save them with appropriate names (e.g., `step1.png`, `upload_docs.png`) inside the corresponding portal folder.
 
 ---
 ## ⚙️ Environment Variables (`.env`)
