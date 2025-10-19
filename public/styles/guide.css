@@ -1,0 +1,30 @@
+/* --- Two-Column Sticky Layout --- */
+.guide-layout { display: grid; grid-template-columns: minmax(0, 2fr) 1fr; gap: 2rem; max-width: 1400px; margin: 0 auto; padding: 2rem; }
+.chat-sidebar { position: sticky; top: 2rem; height: calc(100vh - 4rem); display: flex; flex-direction: column; background-color: var(--surface-color); border: 1px solid var(--border-color); border-radius: var(--border-radius); padding: 1.5rem; }
+
+/* --- Card Styles --- */
+.step-card, .static-card { background-color: var(--background-color); padding: 2rem; border-radius: var(--border-radius); margin-bottom: 2rem; border: 1px solid var(--border-color); }
+.step-card { cursor: pointer; transition: border-color 0.3s, box-shadow 0.3s; }
+.step-card:hover { border-color: var(--primary-hover); }
+.step-card.selected { border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(0, 184, 148, 0.3); }
+.step-card h3 { color: var(--primary-color); }
+.step-content p { color: var(--text-secondary); }
+.step-screenshot { border-radius: var(--border-radius); width: 100%; height: auto; margin-top: 1rem; border: 1px solid var(--border-color); }
+.static-card pre { white-space: pre-wrap; word-wrap: break-word; font-family: inherit; font-size: 1rem; line-height: 1.7; color: var(--text-secondary); background: none; padding: 0; margin: 0; }
+
+/* --- Chat UI Styles --- */
+.chat-sidebar h3 { margin-top: 0; }
+.chat-history { flex-grow: 1; overflow-y: auto; margin-bottom: 1rem; }
+.chat-bubble { max-width: 90%; padding: 0.8rem; border-radius: var(--border-radius); margin-bottom: 0.5rem; line-height: 1.5; word-wrap: break-word; }
+.chat-bubble.user { background: var(--primary-color); color: white; margin-left: auto; }
+.chat-bubble.ai { background: var(--background-color); color: var(--text-secondary); }
+#chatForm label { font-size: 0.9em; }
+#currentStepDisplay { background-color: var(--background-color); border: 1px solid var(--border-color); border-radius: 4px; padding: 0.4rem 0.8rem; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-secondary); }
+#currentStepDisplay.active { color: var(--primary-color); }
+#chatForm textarea { min-height: 80px; resize: vertical; }
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+    .guide-layout { grid-template-columns: 1fr; }
+    .chat-sidebar { position: static; height: auto; margin-top: 2rem; }
+}

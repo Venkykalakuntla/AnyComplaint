@@ -1,0 +1,173 @@
+:root {
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-color: #00b894;
+    --primary-hover: #00a082;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --border-color: #333333;
+    --border-radius: 8px;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 400px;
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+h1, h2, h3 {
+    margin: 0 0 1rem 0;
+}
+h1 { font-size: 1.8rem; }
+h2 { font-size: 1.4rem; color: var(--text-secondary); font-weight: 500;}
+.sidebar h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+label {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.8rem;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.2);
+}
+textarea {
+    resize: vertical;
+    min-height: 150px;
+    flex-grow: 1;
+}
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    margin-top: auto;
+    transition: background-color 0.3s;
+}
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+button[aria-busy="true"] {
+    background-color: var(--primary-hover);
+    cursor: not-allowed;
+}
+
+.document-viewer {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+}
+.document-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+.document-header h3 {
+    margin: 0;
+}
+.document-actions button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    margin-left: 0.5rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+.document-actions button:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+#complaintTextArea {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: "Georgia", serif;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.details-card {
+    background-color: var(--background-color);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+}
+.details-card p {
+    margin: 0.5rem 0;
+}
+.details-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        box-sizing: border-box;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+}

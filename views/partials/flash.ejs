@@ -1,0 +1,47 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100">
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const toastContainer = document.querySelector('.toast-container');
+        // Get messages passed from the server via res.locals
+        const successMsg = '<%= success_msg %>';
+        const errorMsg = '<%= error_msg %>';
+
+        // Function to create and show a Bootstrap toast
+        function createAndShowToast(message, type = 'success') {
+            if (!message || message.trim() === '') return; // Don't show empty toasts
+            if (!toastContainer) return; // Need the container
+
+            const toastEl = document.createElement('div');
+            const toastTypeClass = type === 'success' ? 'text-bg-primary' : 'text-bg-danger'; // Use primary for success, danger for error
+
+            toastEl.classList.add('toast', 'align-items-center', toastTypeClass, 'border-0');
+            toastEl.setAttribute('role', 'alert');
+            toastEl.setAttribute('aria-live', 'assertive');
+            toastEl.setAttribute('aria-atomic', 'true');
+
+            toastEl.innerHTML = `
+                <div class="d-flex">
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            `;
+
+            toastContainer.appendChild(toastEl);
+            const toast = new bootstrap.Toast(toastEl, { delay: 3000 }); // Show for 5 seconds
+            toast.show();
+
+            // Optional: Remove toast from DOM after it hides to prevent buildup
+            toastEl.addEventListener('hidden.bs.toast', () => {
+                toastEl.remove();
+            });
+        }
+
+        // Display the messages if they exist
+        createAndShowToast(successMsg, 'success');
+        createAndShowToast(errorMsg, 'error');
+    });
+</script>

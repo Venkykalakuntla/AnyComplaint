@@ -1,0 +1,58 @@
+.sidebar {
+    width: 550px; 
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-right: 1px solid var(--border-color);
+    position: sticky; 
+    top: 2rem; 
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+}
+
+#refineForm {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0;
+}
+
+#refineInstruction {
+    flex-grow: 1;
+    resize: none;
+}
+
+.document-content {
+     white-space: pre; 
+     overflow-x: auto; 
+    
+    font-family: "Georgia", serif;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.document-content pre {
+    margin: 0;
+    font-family: inherit;
+}
+ 
+@media (max-width: 1024px) {
+
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        box-sizing: border-box;
+    }
+
+    .main-content {
+        padding: 1.5rem;
+    }
+}
