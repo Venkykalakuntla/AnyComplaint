@@ -52,6 +52,10 @@ An intelligent web application that helps users draft formal complaints, identif
     * Copy the contents of `example.env` into `.env`.
     * Fill in your specific values for each variable (API keys, database URI, etc.). See `example.env` for details.
 
+4.  **Run Application:**
+    ```bash
+    node app.js
+    ```
 
 ---
 ## ⚙️ Environment Variables (`.env`)
@@ -79,10 +83,3 @@ EMAIL_PASS=YOUR_16_DIGIT_GMAIL_APP_PASSWORD_NO_SPACES
 
 # Node Environment ('development' or 'production')
 NODE_ENV=development
-
----
-## Run Application
-    ```bash
-    node app.js
-    ```
-
