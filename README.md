@@ -38,8 +38,7 @@ An intelligent web application that helps users draft formal complaints, identif
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
-    cd <repository-folder-name>
+    git clone https://github.com/Venkykalakuntla/AnyComplaint.git 
     ```
 
 2.  **Install dependencies:**
